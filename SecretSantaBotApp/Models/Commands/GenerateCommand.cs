@@ -74,6 +74,8 @@ namespace SecretSantaBotApp.Models.Commands
                         await client.SendTextMessageAsync(chatId, "Forward the next message to participants");
 
                         await client.SendTextMessageAsync(chatId, status, ParseMode.MarkdownV2);
+
+                        await client.SendTextMessageAsync(chatId, "When all participants are accepted their invitations (you can check it by command /status), use command /shuffle to shuffle participants list.");
                     }
                     else
                     {
@@ -82,7 +84,7 @@ namespace SecretSantaBotApp.Models.Commands
                 }
                 catch (Exception e)
                 {
-                    Debug.WriteLine("GenerateCommand:" + e.Message);
+                    Debug.WriteLine($"{nameof(GenerateCommand)}:" + e.Message);
                 }
             }
         }

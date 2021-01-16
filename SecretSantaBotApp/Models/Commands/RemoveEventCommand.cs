@@ -47,7 +47,7 @@ namespace SecretSantaBotApp.Models.Commands
                 }
                 catch (Exception e)
                 {
-                    Debug.WriteLine("RemoveEventCommand:" + e.Message);
+                    Debug.WriteLine($"{nameof(RemoveEventCommand)}:" + e.Message);
                     Debug.WriteLine(e.InnerException.Message.ToString());
                     Debug.WriteLine(e.InnerException.InnerException.Message.ToString());
                 }
