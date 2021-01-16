@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Diagnostics;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using Telegram.Bot;
@@ -27,8 +28,19 @@ namespace SecretSantaBotApp.Models.Actions
                         foreach (var participant in secretEvent.Participants)
                         {
                             var giftUser = participant.GiftUser;
-                            await client.SendTextMessageAsync(participant.ChatId, 
-                                $"Person to whom you give a gift: {giftUser.FirstName} {giftUser.LastName}(@{giftUser.UserName})");
+                            
+                            var sb = new StringBuilder($"Person to whom you give a gift: {giftUser.FirstName} ");
+                            if (!string.IsNullOrEmpty(giftUser.LastName))
+                            {
+                                sb.Append(giftUser.LastName);
+                            }
+
+                            if (!string.IsNullOrEmpty(giftUser.UserName))
+                            {
+                                sb.Append($"(@{giftUser.UserName})");
+                            }
+
+                            await client.SendTextMessageAsync(participant.ChatId, sb.ToString());
                         }
                     }
                     else
