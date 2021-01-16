@@ -20,7 +20,7 @@ namespace SecretSantaBotApp.Extensions
                     provider.GetBytes(box);
                 }
                 while (!(box[0] < n * (byte.MaxValue / n)));
-                int k = (box[0] % n);
+                int k = box[0] % n;
                 n--;
                 T value = list[k];
                 if (list[k].Equals(list[n]))
@@ -28,6 +28,7 @@ namespace SecretSantaBotApp.Extensions
                     n++;
                     continue;
                 }
+
                 list[k] = list[n];
                 list[n] = value;
             }

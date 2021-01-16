@@ -49,6 +49,7 @@ namespace SecretSantaBotApp.Controllers
                         commandFound = true;
                         break;
                     }
+
                     if (message.Text.StartsWith(command.Name))
                     {
                         await UserStart.Execute(message, client);

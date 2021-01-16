@@ -12,7 +12,7 @@ namespace SecretSantaBotApp.Models
     public static class RegistrationStatus
     {
         //private static readonly string status = "\r\nInvite key: `{0}`\r\nEvent name: `{1}` /setname\r\nEvent date: `{2}` /setdate\r\nPlace: `{3}` /setplace\r\nParticipants count: `{4}` /setcount\r\nEvent info: `{5}` /setinfo\r\n";
-        private static readonly string status =
+        private static readonly string StatusMessageText =
             @"Invite key: `{0}`
 Event name: `{1}` /setname
 🗓Event date: `{2}` /setdate
@@ -21,17 +21,17 @@ Event name: `{1}` /setname
 Registered participants count: `{5}`
 If you are ready for sending invitations, run /generate command and forward generated message to participants
 You can check event status using command /status";
-        private static readonly string emptyText = "🚫(optional)";
+        private static readonly string OtionalText = "🚫(optional)";
 
         public static async Task Execute(Message message, TelegramBotClient client)
         {
             var chatId = message.Chat.Id;
 
             string key = string.Empty;
-            string name = emptyText;
-            string dateTime = emptyText;
-            string place = emptyText;
-            string info = emptyText;
+            string name = OtionalText;
+            string dateTime = OtionalText;
+            string place = OtionalText;
+            string info = OtionalText;
             int count = 0;
 
             await client.SendChatActionAsync(chatId, ChatAction.Typing);
@@ -48,14 +48,17 @@ You can check event status using command /status";
                         {
                             name = secretEvent.Name;
                         }
+
                         if (!string.IsNullOrWhiteSpace(secretEvent.Date))
                         {
                             dateTime = secretEvent.Date;
                         }
+
                         if (!string.IsNullOrWhiteSpace(secretEvent.Place))
                         {
                             place = secretEvent.Place;
                         }
+
                         if (!string.IsNullOrWhiteSpace(secretEvent.Info))
                         {
                             info = secretEvent.Info;
@@ -64,9 +67,8 @@ You can check event status using command /status";
                         count = secretEvent.Participants.Count();
                         secretEvent.ParticipantsCount = count;
                         await db.SaveChangesAsync();
-                        
 
-                        await client.SendTextMessageAsync(chatId, string.Format(status, key, name, dateTime, place, info, count), ParseMode.MarkdownV2);
+                        await client.SendTextMessageAsync(chatId, string.Format(StatusMessageText, key, name, dateTime, place, info, count), ParseMode.MarkdownV2);
                     }
                     else
                     {

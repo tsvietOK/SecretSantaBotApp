@@ -15,6 +15,7 @@ namespace SecretSantaBotApp.Models
         }
 
         public DbSet<SecretSantaEvent> Events { get; set; }
+
         public DbSet<TelegramChat> Users { get; set; }
     }
 }

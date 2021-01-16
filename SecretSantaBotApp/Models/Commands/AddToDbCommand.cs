@@ -31,7 +31,6 @@ namespace SecretSantaBotApp.Models.Commands
                 await client.SendTextMessageAsync(chatId, "Created DB context");
                 try
                 {
-
                     /*db.Database.Connection.Open();
                     await client.SendTextMessageAsync(chatId, "Opened DB connection");*/
 
@@ -63,13 +62,13 @@ namespace SecretSantaBotApp.Models.Commands
                         await client.SendTextMessageAsync(chatId, "User already exists in DB");
                     }
                 }
-                catch (Exception e )
+                catch (Exception e)
                 {
                     Debug.WriteLine(e.Message);
                 }
             }
-            await client.SendTextMessageAsync(chatId, "Disposed");
 
+            await client.SendTextMessageAsync(chatId, "Disposed");
         }
     }
 }

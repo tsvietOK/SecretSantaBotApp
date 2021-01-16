@@ -120,12 +120,14 @@ namespace SecretSantaBotApp.Models.Actions
                                     secretEvent.ParticipantsCount = count;
                                     result = true;
                                 }
+
                                 break;
                             case RegStage.SetInfo:
                                 secretEvent.Info = message.Text;
                                 result = true;
                                 break;
                         }
+
                         await db.SaveChangesAsync();
                     }
                 }
@@ -161,7 +163,6 @@ namespace SecretSantaBotApp.Models.Actions
 
             return RegStage.NotStarted;
         }
-
 
         public static async Task SetStageAsync(Message message, TelegramBotClient client, RegStage stage)
         {

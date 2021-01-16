@@ -19,6 +19,7 @@ namespace SecretSantaBotApp.Models.Commands
         private readonly string statusPlace = @"Event location `{0}`\." + Environment.NewLine;
         private readonly string statusInfo = @"Additional info about event: `{0}`" + Environment.NewLine;
         private readonly string statusLink = @"Your registration link: https://t\.me/privy\_santa\_bot?start\={0}";
+
         public override string Name => @"/generate";
 
         public override async Task Execute(Message message, TelegramBotClient client)

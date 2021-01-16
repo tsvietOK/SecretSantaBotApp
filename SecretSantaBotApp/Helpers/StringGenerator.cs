@@ -8,7 +8,7 @@ namespace SecretSantaBotApp.Helpers
     {
         public static string RandomString(int length)
         {
-            const string valid = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+            const string ValidSymbols = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
             StringBuilder res = new StringBuilder();
             using (RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider())
             {
@@ -18,9 +18,10 @@ namespace SecretSantaBotApp.Helpers
                 {
                     rng.GetBytes(uintBuffer);
                     uint num = BitConverter.ToUInt32(uintBuffer, 0);
-                    res.Append(valid[(int)(num % (uint)valid.Length)]);
+                    res.Append(ValidSymbols[(int)(num % (uint)ValidSymbols.Length)]);
                 }
             }
+
             return res.ToString();
         }
     }

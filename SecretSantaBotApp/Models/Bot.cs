@@ -13,10 +13,12 @@ namespace SecretSantaBotApp.Models
     {
         private static TelegramBotClient client;
         private static List<Command> commandList;
+
         public static IReadOnlyList<Command> Commands
         {
             get => commandList.AsReadOnly();
         }
+
         public static async Task<TelegramBotClient> GetBotClientAsync()
         {
             if (client != null)

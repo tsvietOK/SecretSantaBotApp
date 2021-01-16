@@ -38,12 +38,12 @@ namespace SecretSantaBotApp.Models.Commands
                         {
                             secretSantaEvent.GenerateInviteKey();
                         }
+
                         db.Events.Add(secretSantaEvent);
                         await db.SaveChangesAsync();
 
                         await client.SendTextMessageAsync(chatId, "You can fill optional fields or/and generate invitation using command /generate.");
                         //success = true;
-                        
                     }
                     else
                     {
