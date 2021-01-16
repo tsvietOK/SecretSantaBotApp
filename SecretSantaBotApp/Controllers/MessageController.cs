@@ -34,7 +34,12 @@ namespace SecretSantaBotApp.Controllers
                 await CommandNotFound.Execute(prevMessage, client);
             }
 
-            if (message.Text.StartsWith("/"))
+            if (string.IsNullOrWhiteSpace(message.Text))
+            {
+                return Ok();
+            }
+
+            if (message.Text.StartsWith("/")) //is command
             {
                 foreach (var command in commands)
                 {
