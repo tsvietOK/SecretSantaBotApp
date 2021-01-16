@@ -15,12 +15,12 @@ namespace SecretSantaBotApp.Models
         private static readonly string status =
             @"Invite key: `{0}`
 Event name: `{1}` /setName
-Event date: `{2}` /setDate
-Place: `{3}` /setPlace
-Event info: `{4}` /setInfo
+🗓Event date: `{2}` /setDate
+🏠Place: `{3}` /setPlace
+ℹ️Event info: `{4}` /setInfo
 Registered participants count: `{5}`
 If you are ready for sending invitations, run /generate command and forward generated message to participants
-You could update statistic using command /status";
+You can check event status using command /status";
         private static readonly string emptyText = "🚫(optional)";
 
         public static async Task Execute(Message message, TelegramBotClient client)
