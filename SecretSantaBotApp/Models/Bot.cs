@@ -38,7 +38,8 @@ namespace SecretSantaBotApp.Models
                 new GenerateCommand(),
                 new RemoveEventCommand(),
                 new ShuffleCommand(),
-                new ContactCommand()
+                new ContactCommand(),
+                new HelpCommand()
             };
             //commandList.Add(new ClearCommand());
             //TODO: Add more commands
