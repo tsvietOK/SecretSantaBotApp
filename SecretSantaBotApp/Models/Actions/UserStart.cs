@@ -16,16 +16,9 @@ namespace SecretSantaBotApp.Models.Actions
 
             bool userExists = false;
 
-            TelegramChat user = new TelegramChat
-            {
-                ChatId = chatId,
-                FirstName = message.Chat.FirstName,
-                LastName = message.Chat.LastName,
-                UserName = message.Chat.Username,
-            };
-
             Regex regex = new Regex(@"^\/start\s(.*)");
             Match match = regex.Match(message.Text);
+
             if (match.Success)
             {
                 string eventKey = match.Groups[1].Value;
@@ -34,34 +27,16 @@ namespace SecretSantaBotApp.Models.Actions
                 {
                     try
                     {
-                        /*var users = db.Users;
-
-                        foreach (var dbUser in users)
-                        {
-                            if (user.EventKey == dbUser.EventKey && user.ChatId == dbUser.ChatId)
-                            {
-                                //eventExists = true;
-                                break;
-                            }
-                        }
-
-                        if (!eventExists)
-                        {
-                            db.Users.Add(user);
-                            await db.SaveChangesAsync();
-
-                            await client.SendTextMessageAsync(chatId, $"Congratulations! You are registered to event!");
-                        }
-                        else
-                        {
-                            await client.SendTextMessageAsync(chatId, "You don't need to register to this event again.");
-                        }*/
-
                         var events = db.Events;
-
                         var _event = await events.FirstOrDefaultAsync(x => x.InviteKey == eventKey);
 
-
+                        TelegramChat user = new TelegramChat
+                        {
+                            ChatId = chatId,
+                            FirstName = message.Chat.FirstName,
+                            LastName = message.Chat.LastName,
+                            UserName = message.Chat.Username,
+                        };
 
                         foreach (var eventUser in _event.Participants)
                         {

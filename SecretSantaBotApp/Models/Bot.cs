@@ -37,7 +37,8 @@ namespace SecretSantaBotApp.Models
                 new SetInfoCommand(),
                 new GenerateCommand(),
                 new RemoveEventCommand(),
-                new RandomizeCommand()
+                new RandomizeCommand(),
+                new ContactCommand()
             };
             //commandList.Add(new ClearCommand());
             //TODO: Add more commands
