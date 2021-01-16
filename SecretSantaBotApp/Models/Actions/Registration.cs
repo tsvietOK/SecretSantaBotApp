@@ -174,7 +174,7 @@ namespace SecretSantaBotApp.Models.Actions
                     var secretEvent = await db.Events.FirstOrDefaultAsync(x => x.HostChatId == chatId);
                     if (secretEvent != null)
                     {
-                        secretEvent.RegistrationStage = (int)stage;
+                        secretEvent.RegistrationStage = stage;
                         await db.SaveChangesAsync();
 
                         await ShowStageMessageAsync(message, client, stage);

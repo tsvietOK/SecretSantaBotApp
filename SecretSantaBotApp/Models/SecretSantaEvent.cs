@@ -1,4 +1,5 @@
 ﻿using SecretSantaBotApp.Helpers;
+using SecretSantaBotApp.Models.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -24,7 +25,7 @@ namespace SecretSantaBotApp.Models
         public int Id { get; set; }
         public long HostChatId { get; set; }
         public string InviteKey { get; set; }
-        public int RegistrationStage { get; set; }
+        public RegStage RegistrationStage { get; set; }
         public string Name { get; set; }
         public string Date { get; set; }
         public string Place { get; set; }

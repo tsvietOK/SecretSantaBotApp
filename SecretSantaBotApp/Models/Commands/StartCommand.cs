@@ -6,7 +6,7 @@ namespace SecretSantaBotApp.Models.Commands
 {
     public class StartCommand : Command
     {
-        private string startMessage = "Hello {0}! Now you are organizer of Secret Santa event.";
+        private readonly string startMessage = "Hello {0}! Now you are organizer of Secret Santa event.";
         //private string startMessage = "Hello {0}! I will help you to find a person whom you give a gift.";
         public override string Name => @"/start";
 
