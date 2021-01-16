@@ -67,7 +67,7 @@ namespace SecretSantaBotApp.Models.Commands
                 }
                 catch (Exception e)
                 {
-                    Debug.WriteLine($"{nameof(ShuffleCommand)}:" + e.Message);
+                    Debug.WriteLine($"{nameof(ShuffleCommand)}:{e.Message}");
                     if (e.InnerException != null)
                     {
                         Debug.WriteLine(e.InnerException);

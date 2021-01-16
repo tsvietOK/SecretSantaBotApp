@@ -66,7 +66,7 @@ namespace SecretSantaBotApp.Models.Actions
                     }
                     catch (Exception e)
                     {
-                        Debug.WriteLine($"{nameof(UserStart)}:" + e.Message);
+                        Debug.WriteLine($"{nameof(UserStart)}:{e.Message}");
                     }
                 }
             }

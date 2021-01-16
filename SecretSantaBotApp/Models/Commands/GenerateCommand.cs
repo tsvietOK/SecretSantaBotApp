@@ -84,7 +84,7 @@ namespace SecretSantaBotApp.Models.Commands
                 }
                 catch (Exception e)
                 {
-                    Debug.WriteLine($"{nameof(GenerateCommand)}:" + e.Message);
+                    Debug.WriteLine($"{nameof(GenerateCommand)}:{e.Message}");
                 }
             }
         }

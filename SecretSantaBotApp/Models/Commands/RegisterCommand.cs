@@ -52,7 +52,7 @@ namespace SecretSantaBotApp.Models.Commands
                 }
                 catch (Exception e)
                 {
-                    Debug.WriteLine("RegisterCommand:" + e.Message);
+                    Debug.WriteLine($"{nameof(RegisterCommand)}:{e.Message}");
                     if (e.InnerException != null)
                     {
                         Debug.WriteLine(e.InnerException.Message.ToString());

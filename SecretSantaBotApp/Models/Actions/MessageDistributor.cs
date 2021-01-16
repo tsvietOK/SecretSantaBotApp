@@ -50,7 +50,7 @@ namespace SecretSantaBotApp.Models.Actions
                 }
                 catch (Exception e)
                 {
-                    Debug.WriteLine($"{nameof(MessageDistributor)}:" + e.Message);
+                    Debug.WriteLine($"{nameof(MessageDistributor)}:{e.Message}");
                     if (e.InnerException != null)
                     {
                         Debug.WriteLine(e.InnerException);

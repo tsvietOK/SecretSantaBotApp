@@ -75,7 +75,7 @@ You can check event status using command /status";
                 }
                 catch (Exception e)
                 {
-                    Debug.WriteLine($"{nameof(RegistrationStatus)}:" + e.Message);
+                    Debug.WriteLine($"{nameof(RegistrationStatus)}:{e.Message}");
                     if (e.InnerException != null)
                     {
                         Debug.WriteLine(e.InnerException);

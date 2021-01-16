@@ -131,7 +131,7 @@ namespace SecretSantaBotApp.Models.Actions
                 }
                 catch (Exception e)
                 {
-                    Debug.WriteLine("Registration.SetField():" + e.Message);
+                    Debug.WriteLine($"{nameof(Registration)}.{nameof(SetFieldAsync)}:{e.Message}");
                 }
             }
 
@@ -149,12 +149,12 @@ namespace SecretSantaBotApp.Models.Actions
                     var secretEvent = await db.Events.FirstOrDefaultAsync(x => x.HostChatId == chatId);
                     if (secretEvent != null)
                     {
-                        return (RegStage)secretEvent.RegistrationStage;
+                        return secretEvent.RegistrationStage;
                     }
                 }
                 catch (Exception e)
                 {
-                    Debug.WriteLine("Registration.GetStageAsync():" + e.Message);
+                    Debug.WriteLine($"{nameof(Registration)}.{nameof(GetStageAsync)}:{e.Message}");
                     Debug.WriteLine(e.InnerException.ToString());
                 }
             }
@@ -186,7 +186,7 @@ namespace SecretSantaBotApp.Models.Actions
                 }
                 catch (Exception e)
                 {
-                    Debug.WriteLine("Registration.SetStage():" + e.Message);
+                    Debug.WriteLine($"{nameof(Registration)}.{nameof(SetStageAsync)}:{e.Message}");
                 }
             }
         }
