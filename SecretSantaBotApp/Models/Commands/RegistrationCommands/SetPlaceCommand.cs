@@ -8,7 +8,7 @@ namespace SecretSantaBotApp.Models.Commands.RegistrationCommands
 {
     public class SetPlaceCommand : Command
     {
-        public override string Name => @"/setPlace";
+        public override string Name => @"/setplace";
 
         public override async Task Execute(Message message, TelegramBotClient client)
         {

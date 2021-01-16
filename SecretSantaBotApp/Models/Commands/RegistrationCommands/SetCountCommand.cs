@@ -8,7 +8,7 @@ namespace SecretSantaBotApp.Models.Commands.RegistrationCommands
 {
     public class SetCountCommand : Command
     {
-        public override string Name => @"/setCount";
+        public override string Name => @"/setcount";
 
         public override async Task Execute(Message message, TelegramBotClient client)
         {

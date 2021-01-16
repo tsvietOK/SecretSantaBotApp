@@ -11,13 +11,13 @@ namespace SecretSantaBotApp.Models
 {
     public static class RegistrationStatus
     {
-        //private static readonly string status = "\r\nInvite key: `{0}`\r\nEvent name: `{1}` /setName\r\nEvent date: `{2}` /setDate\r\nPlace: `{3}` /setPlace\r\nParticipants count: `{4}` /setCount\r\nEvent info: `{5}` /setInfo\r\n";
+        //private static readonly string status = "\r\nInvite key: `{0}`\r\nEvent name: `{1}` /setname\r\nEvent date: `{2}` /setdate\r\nPlace: `{3}` /setplace\r\nParticipants count: `{4}` /setcount\r\nEvent info: `{5}` /setinfo\r\n";
         private static readonly string status =
             @"Invite key: `{0}`
-Event name: `{1}` /setName
-🗓Event date: `{2}` /setDate
-🏠Place: `{3}` /setPlace
-ℹ️Event info: `{4}` /setInfo
+Event name: `{1}` /setname
+🗓Event date: `{2}` /setdate
+🏠Place: `{3}` /setplace
+ℹ️Event info: `{4}` /setinfo
 Registered participants count: `{5}`
 If you are ready for sending invitations, run /generate command and forward generated message to participants
 You can check event status using command /status";

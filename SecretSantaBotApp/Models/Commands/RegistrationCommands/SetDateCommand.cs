@@ -12,7 +12,7 @@ namespace SecretSantaBotApp.Models.Commands.RegistrationCommands
 {
     public class SetDateCommand : Command
     {
-        public override string Name => @"/setDate";
+        public override string Name => @"/setdate";
 
         public override async Task Execute(Message message, TelegramBotClient client)
         {
