@@ -15,7 +15,7 @@ namespace SecretSantaBotApp.Models.Commands
     {
         private readonly string statusName = @"You are invited to `{0}` event\." + Environment.NewLine;
         private readonly string statusDate = @"Event is scheduled for `{0}`\." + Environment.NewLine;
-        private readonly string statusCount = @"Planned number of participants is `{0}`\." + Environment.NewLine;
+        private readonly string statusCount = @"Number of participants: `{0}`\." + Environment.NewLine;
         private readonly string statusPlace = @"Event location `{0}`\." + Environment.NewLine;
         private readonly string statusInfo = @"Additional info about event: `{0}`" + Environment.NewLine;
         private readonly string statusLink = @"Your registration link: https://t\.me/privy\_santa\_bot?start\={0}";
@@ -45,14 +45,17 @@ namespace SecretSantaBotApp.Models.Commands
                         {
                             status += string.Format(statusName, "Secret Santa");
                         }
+
                         if (!string.IsNullOrWhiteSpace(secretEvent.Date))
                         {
                             status += string.Format(statusDate, secretEvent.Date);
                         }
+
                         if (!string.IsNullOrWhiteSpace(secretEvent.Place))
                         {
                             status += string.Format(statusPlace, secretEvent.Place);
                         }
+
                         if (!string.IsNullOrWhiteSpace(secretEvent.ParticipantsCount.ToString()))
                         {
                             if (secretEvent.ParticipantsCount > 0)
@@ -60,6 +63,7 @@ namespace SecretSantaBotApp.Models.Commands
                                 status += string.Format(statusCount, secretEvent.ParticipantsCount);
                             }
                         }
+
                         if (!string.IsNullOrWhiteSpace(secretEvent.Info))
                         {
                             status += string.Format(statusInfo, secretEvent.Info);
@@ -67,7 +71,7 @@ namespace SecretSantaBotApp.Models.Commands
 
                         status += string.Format(statusLink, secretEvent.InviteKey);
 
-                        await client.SendTextMessageAsync(chatId, "Send the next message to participants");
+                        await client.SendTextMessageAsync(chatId, "Forward the next message to participants");
 
                         await client.SendTextMessageAsync(chatId, status, ParseMode.MarkdownV2);
                     }
