@@ -8,7 +8,7 @@ namespace SecretSantaBotApp.Models.Commands.RegistrationCommands
     {
         public override string Name => @"/status";
 
-        public override Task Execute(Message message, TelegramBotClient client)
+        public override Task ExecuteAsync(Message message, TelegramBotClient client)
         {
             return RegistrationStatus.Execute(message, client);
         }

@@ -13,7 +13,7 @@ namespace SecretSantaBotApp.Models.Commands
     {
         public override string Name => @"/clear";
 
-        public async override Task Execute(Message message, TelegramBotClient client)
+        public async override Task ExecuteAsync(Message message, TelegramBotClient client)
         {
             var chatId = message.Chat.Id;
 

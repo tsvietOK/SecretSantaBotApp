@@ -20,7 +20,7 @@ namespace SecretSantaBotApp.Models.Commands
 
         public override string Name => @"/help";
 
-        public override async Task Execute(Message message, TelegramBotClient client)
+        public override async Task ExecuteAsync(Message message, TelegramBotClient client)
         {
             await client.SendTextMessageAsync(message.Chat.Id, help);
         }

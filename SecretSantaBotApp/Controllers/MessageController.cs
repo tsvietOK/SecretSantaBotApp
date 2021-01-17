@@ -45,7 +45,7 @@ namespace SecretSantaBotApp.Controllers
                 {
                     if (message.Text.Equals(command.Name, StringComparison.OrdinalIgnoreCase))
                     {
-                        await command.Execute(message, client);
+                        await command.ExecuteAsync(message, client);
                         commandFound = true;
                         break;
                     }

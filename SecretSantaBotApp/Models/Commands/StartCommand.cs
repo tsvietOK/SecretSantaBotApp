@@ -10,7 +10,7 @@ namespace SecretSantaBotApp.Models.Commands
         //private string startMessage = "Hello {0}! I will help you to find a person whom you give a gift.";
         public override string Name => @"/start";
 
-        public override async Task Execute(Message message, TelegramBotClient client)
+        public override async Task ExecuteAsync(Message message, TelegramBotClient client)
         {
             var chatId = message.Chat.Id;
             var userName = message.Chat.FirstName;

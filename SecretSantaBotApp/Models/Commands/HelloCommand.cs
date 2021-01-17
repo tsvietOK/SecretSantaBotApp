@@ -12,7 +12,7 @@ namespace SecretSantaBotApp.Models.Commands
     {
         public override string Name => @"/hello";
 
-        public override async Task Execute(Message message, TelegramBotClient client)
+        public override async Task ExecuteAsync(Message message, TelegramBotClient client)
         {
             var chatId = message.Chat.Id;
             var userName = message.Chat.Username;
