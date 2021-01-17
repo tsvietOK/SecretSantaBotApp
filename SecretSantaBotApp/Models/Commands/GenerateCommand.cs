@@ -14,11 +14,11 @@ namespace SecretSantaBotApp.Models.Commands
     public class GenerateCommand : Command
     {
         private readonly string statusName = @"You are invited to `{0}` event\." + Environment.NewLine;
-        private readonly string statusDate = @"Event is scheduled for `{0}`\." + Environment.NewLine;
+        private readonly string statusDate = @"🗓 Event is scheduled for `{0}`\." + Environment.NewLine;
         private readonly string statusCount = @"Number of participants: `{0}`\." + Environment.NewLine;
-        private readonly string statusPlace = @"Event location `{0}`\." + Environment.NewLine;
-        private readonly string statusInfo = @"Additional info about event: `{0}`" + Environment.NewLine;
-        private readonly string statusLink = @"Your registration link: https://t\.me/privy\_santa\_bot?start\={0}";
+        private readonly string statusPlace = @"🏠 Event location `{0}`\." + Environment.NewLine;
+        private readonly string statusInfo = @"ℹ️ Additional info about event: `{0}`" + Environment.NewLine;
+        private readonly string statusLink = @"🔗 Your registration link: https://t\.me/privy\_santa\_bot?start\={0}";
 
         public override string Name => @"/generate";
 
@@ -26,7 +26,7 @@ namespace SecretSantaBotApp.Models.Commands
         {
             var chatId = message.Chat.Id;
 
-            string status = @"Hello\!" + Environment.NewLine;
+            string status = @"Hello\!👋" + Environment.NewLine;
 
             await client.SendChatActionAsync(chatId, ChatAction.Typing);
 
