@@ -6,8 +6,16 @@ using System.Web;
 
 namespace SecretSantaBotApp.Extensions
 {
+    /// <summary>
+    /// Provides extensions methods for <see cref="System.Collections.IList" />.
+    /// </summary>
     public static class ListExtensions
     {
+        /// <summary>
+        /// Randomly shuffle <see cref="System.Collections.IList" /> using <see cref="RNGCryptoServiceProvider" />.
+        /// </summary>
+        /// <typeparam name="T">Specifies the element type of the <see cref="System.Collections.IList" />.</typeparam>
+        /// <param name="list">Input <see cref="System.Collections.IList" /> to shuffle.</param>
         public static void Shuffle<T>(this IList<T> list)
         {
             RNGCryptoServiceProvider provider = new RNGCryptoServiceProvider();

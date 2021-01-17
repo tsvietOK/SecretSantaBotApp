@@ -4,8 +4,16 @@ using System.Text;
 
 namespace SecretSantaBotApp.Helpers
 {
+    /// <summary>
+    /// Provides static methods for string generation.
+    /// </summary>
     public static class StringGenerator
     {
+        /// <summary>
+        /// Generates random string with the specified length.
+        /// </summary>
+        /// <param name="length">Length of the generated string.</param>
+        /// <returns>Randomly generated string of the specified length.</returns>
         public static string RandomString(int length)
         {
             const string ValidSymbols = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
