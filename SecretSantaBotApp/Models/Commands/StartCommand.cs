@@ -15,8 +15,6 @@ namespace SecretSantaBotApp.Models.Commands
             var chatId = message.Chat.Id;
             var userName = message.Chat.FirstName;
 
-            //TODO: Bot logic
-
             await client.SendTextMessageAsync(chatId, string.Format(startMessage, userName));
             await client.SendTextMessageAsync(chatId, "Press /register to create a new event");
         }

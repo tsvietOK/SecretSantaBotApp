@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Diagnostics;
-using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
@@ -37,7 +34,6 @@ namespace SecretSantaBotApp.Models.Commands
                     var secretEvent = await db.Events.FirstOrDefaultAsync(x => x.HostChatId == chatId);
                     if (secretEvent != null)
                     {
-                        //key = secretEvent.InviteKey;
                         if (!string.IsNullOrWhiteSpace(secretEvent.Name))
                         {
                             status += string.Format(statusName, secretEvent.Name);

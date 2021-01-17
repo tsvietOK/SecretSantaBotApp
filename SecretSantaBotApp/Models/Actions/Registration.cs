@@ -17,7 +17,6 @@ namespace SecretSantaBotApp.Models.Actions
             var chatId = message.Chat.Id;
 
             var stage = await GetStageAsync(message);
-            //await client.SendTextMessageAsync(chatId, "Current stage: " + stage.ToString());
 
             if (stage == RegStage.NotStarted)
             {
@@ -36,55 +35,6 @@ namespace SecretSantaBotApp.Models.Actions
                     await RegistrationStatus.Execute(message, client);
                 }
             }
-
-            /*switch (stage)
-            {
-                case -1:
-                    
-                    break;
-                case 0:
-                    //set Name
-                    if (await SetField(message, client, FieldType.Name))
-                    {
-                        //await SetStage(message, client, 1);
-                        await RegistrationStatus.Execute(message, client);
-                    }
-                    break;
-                case 1:
-                    //set Date
-                    if (await SetField(message, client, FieldType.Date))
-                    {
-                        //await SetStage(message, client, 2);
-                        await RegistrationStatus.Execute(message, client);
-                    }
-                    break;
-                case 2:
-                    //set Place
-                    if (await SetField(message, client, FieldType.Place))
-                    {
-                        //await SetStage(message, client, 3);
-                        await RegistrationStatus.Execute(message, client);
-                    }
-                    break;
-                case 3:
-                    //set Participants count
-                    if (await SetField(message, client, FieldType.Count))
-                    {
-                        //await SetStage(message, client, 4);
-                        await RegistrationStatus.Execute(message, client);
-                    }
-                    break;
-                case 4:
-                    //set Info
-                    if (await SetField(message, client, FieldType.Info))
-                    {
-                        //await SetStage(message, client, 5);
-                        await RegistrationStatus.Execute(message, client);
-                    }
-                    break;
-                default:
-                    break;
-            }*/
         }
 
         public static async Task<bool> SetFieldAsync(Message message, RegStage stage)
@@ -157,7 +107,10 @@ namespace SecretSantaBotApp.Models.Actions
                 catch (Exception e)
                 {
                     Debug.WriteLine($"{nameof(Registration)}.{nameof(GetStageAsync)}:{e.Message}");
-                    Debug.WriteLine(e.InnerException.ToString());
+                    if (e.InnerException != null)
+                    {
+                        Debug.WriteLine(e.InnerException);
+                    }
                 }
             }
 

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Data.Entity;
 using System.Diagnostics;
-using System.Linq;
 using System.Threading.Tasks;
 using Telegram.Bot;
 using Telegram.Bot.Types;
@@ -48,8 +47,10 @@ namespace SecretSantaBotApp.Models.Commands
                 catch (Exception e)
                 {
                     Debug.WriteLine($"{nameof(RemoveEventCommand)}:{e.Message}");
-                    Debug.WriteLine(e.InnerException.Message.ToString());
-                    Debug.WriteLine(e.InnerException.InnerException.Message.ToString());
+                    if (e.InnerException != null)
+                    {
+                        Debug.WriteLine(e.InnerException);
+                    }
                 }
             }
         }

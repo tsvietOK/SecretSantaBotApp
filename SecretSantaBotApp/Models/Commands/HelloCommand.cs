@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Web;
+﻿using System.Threading.Tasks;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 
@@ -16,8 +12,6 @@ namespace SecretSantaBotApp.Models.Commands
         {
             var chatId = message.Chat.Id;
             var userName = message.Chat.Username;
-
-            //TODO: Bot logic
 
             await client.SendTextMessageAsync(chatId, $"Hello {userName}!");
         }

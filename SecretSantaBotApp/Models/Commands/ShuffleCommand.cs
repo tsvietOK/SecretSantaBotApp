@@ -1,12 +1,10 @@
 ﻿using SecretSantaBotApp.Extensions;
 using SecretSantaBotApp.Models.Actions;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
@@ -22,13 +20,6 @@ namespace SecretSantaBotApp.Models.Commands
         public override async Task ExecuteAsync(Message message, TelegramBotClient client)
         {
             var chatId = message.Chat.Id;
-
-            /*string key = string.Empty;
-            string name = emptyText;
-            string dateTime = emptyText;
-            string place = emptyText;
-            string info = emptyText;
-            int count = 0;*/
 
             await client.SendChatActionAsync(chatId, ChatAction.Typing);
 

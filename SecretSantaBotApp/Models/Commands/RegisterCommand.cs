@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 using SecretSantaBotApp.Models.Actions;
@@ -20,13 +18,11 @@ namespace SecretSantaBotApp.Models.Commands
         public override async Task ExecuteAsync(Message message, TelegramBotClient client)
         {
             var chatId = message.Chat.Id;
-            //var userName = message.Chat.FirstName;
 
             await client.SendChatActionAsync(chatId, ChatAction.Typing);
 
             using (TelegramChatContext db = new TelegramChatContext())
             {
-                //await client.SendTextMessageAsync(chatId, "Created DB context");
                 try
                 {
                     var events = db.Events;
@@ -43,7 +39,6 @@ namespace SecretSantaBotApp.Models.Commands
                         await db.SaveChangesAsync();
 
                         await client.SendTextMessageAsync(chatId, "You can fill optional fields or/and generate invitation using command /generate.");
-                        //success = true;
                     }
                     else
                     {
@@ -55,15 +50,13 @@ namespace SecretSantaBotApp.Models.Commands
                     Debug.WriteLine($"{nameof(RegisterCommand)}:{e.Message}");
                     if (e.InnerException != null)
                     {
-                        Debug.WriteLine(e.InnerException.Message.ToString());
+                        Debug.WriteLine(e.InnerException.Message);
                     }
                 }
             }
 
             await Registration.SetStageAsync(message, client, RegStage.SelectOption);
             await RegistrationStatus.Execute(message, client);
-
-            //await client.SendTextMessageAsync(chatId, "In the next message, send me the name of the company where you work");
         }
     }
 }
